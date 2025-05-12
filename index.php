@@ -1,5 +1,7 @@
 <?php
-session_start(); 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 $page = $_GET['page'] ?? 'login';
 
 $admin_pages = ['admin_dashboard', 'add_book', 'edit_buku', 'hapus_buku'];
