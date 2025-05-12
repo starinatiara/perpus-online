@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error = "Judul dan penulis buku harus diisi!";
     } else {
         if (!empty($_FILES['cover']['name'])) {
-            $uploadDir = 'uploads/';
+            $uploadDir = '/tmp/';
             $filename = basename($_FILES['cover']['name']);
             $targetPath = $uploadDir . time() . "_" . $filename;
 
