@@ -63,9 +63,9 @@ renderPage(function () use ($borrowingHistory) {
                     <tbody>
                         <?php foreach ($borrowingHistory['history'] as $record): ?>
                             <tr>
-                                <td><?= htmlspecialchars($record['title']) ?></td>
-                                <td><?= htmlspecialchars($record['borrow_date']) ?></td>
-                                <td><?= htmlspecialchars($record['return_deadline']) ?></td>
+                                <td><?= htmlspecialchars($record['title'] ?? '') ?></td>
+                                <td><?= htmlspecialchars($record['borrow_date'] ?? '') ?></td>
+                                <td><?= htmlspecialchars($record['return_deadline'] ?? '') ?></td>
                                 <td>
                                     <?php if ($record['status'] === 'dipinjam'): ?>
                                         <span class="badge badge-warning">Dipinjam</span>
