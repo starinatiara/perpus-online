@@ -19,7 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $userData = $user->getUserByUsername($username);
 
         if ($userData && password_verify($password, $userData['password'])) {
-            session_start();
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
+
             $_SESSION['username'] = $userData['username'];
             $_SESSION['user_id'] = $userData['id'];
             $_SESSION['role'] = $userData['role'];
