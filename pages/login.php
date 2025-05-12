@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../classes/users.php';
 require_once __DIR__ . '/../include/layout.php';
@@ -19,9 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $userData = $user->getUserByUsername($username);
 
         if ($userData && password_verify($password, $userData['password'])) {
-            if (session_status() == PHP_SESSION_NONE) {
-                session_start();
-            }
+            // if (session_status() == PHP_SESSION_NONE) {
+            //     session_start();
+            // }
 
             $_SESSION['username'] = $userData['username'];
             $_SESSION['user_id'] = $userData['id'];
